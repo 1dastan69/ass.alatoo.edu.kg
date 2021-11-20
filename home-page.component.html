@@ -1,0 +1,146 @@
+<div class="section">
+  <div class="container mar has-text-centered mar-r-l">
+    <div class="header">
+      <div class="brand" >
+        <figure class="image" style="float: left;">
+          <a routerLink="/"><img src="../../../assets/images/logo.png"></a>
+        </figure>
+      </div>
+      <div class="content has-text-centered">
+        <h1>Научный журнал Международного университета Ала-Тоо</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container mar-r-l">
+    <br>
+    <div class="field is-grouped mar1">
+      <p class="control is-expanded has-icons-left">
+        <input class="input is-transparent" [(ngModel)]="textSearch"  type="text" placeholder="search anything...">
+        <span class="icon is-left"><i class="fa fa-search"></i></span>
+      </p>
+      <p class="control"><a href="{{websiteUrl + textSearch}}" class="button is-info btn"  target="_blank">Поиск</a></p>
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    <div class="columns">
+      <div class="column">
+        <table class="table is-fullwidth">
+          <tbody>
+          <tr>
+            <td>
+
+              <div *ngFor="let year of listOfJournals; let i = index">
+                <div class="tab">
+                  <input type="checkbox" id={{i}}>
+                  <label class="tab-label" for={{i}}><span class="year-name">{{year.displayName}}</span></label>
+                  <div *ngFor="let publish of year.revisions" class="tab-content">
+                    <h2 class="h2 has-text-left">
+                      <a title="Перейти к содержанию" href="{{publish.link}}" target="_blank">{{publish.displayName}}
+                      <img src="../../../assets/images/pdf.png" title="Тексты статей в PDF" style="margin-left: 5px" width="41" height="51" alt="" border="0"></a>
+                      Секции: <span>(количество статей)</span>
+                    </h2>
+                    <p *ngFor="let predmet of publish.subjects"><a routerLink="/article/{{predmet.id}}">
+                      {{predmet.displayName}}</a> <span class="is-right number-of-articles"> ({{predmet.articles.length}})</span>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <h3 class="has-text-left publ public"><a class="has-text-centered" routerLink="/publication-en"> Publication
+                Ethics and Publication Malpractice </a></h3>
+              <h3 class="has-text-left publ public1"><a class="has-text-centered" routerLink="publication-ru">ЭТИКА
+                ПУБЛИКАЦИИ
+                журнала «Alatoo Academic Studies»</a></h3>
+
+              <p class="pf"><a href="/assets/files/правила для авторов аас.doc" download="">ПРАВИЛА ДЛЯ АВТОРОВ</a></p>
+              <p class="pf1"><a href="/assets/files/порядок рецензирования рукописей поступивших в редакцию журнала AAS.docx" download="">ПОРЯДОК РЕЦЕНЗИРОВАНИЯ РУКОПИСЕЙ В РЕДАКЦИЮ ЖУРНАЛА
+                AAS</a>
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="column">
+        <table class="table is-fullwidth">
+          <tbody>
+          <tr>
+            <td class="has-text-left">
+              <p class="pl" style="border:none; padding-bottom: 20px">
+                <img src="../../../assets/images/2019-1.png" border="0" alt="Обложка одного из выпусков Вестника"
+                     height="650px;" width="615px;" class="border-img">
+              </p>
+              <div class="kvartal">
+                <p class="has-text-centered kvar-right">Ежеквартальный научный журнал</p>
+                <br>
+                <p class="kvar-uchr"><span class="has-text-right uchr">Учредитель:</span>
+                  <br><span class="univer">Международный университет Ала-Тоо</span>
+                </p>
+                <p class="kvar-simple-p">
+                  <span class="simple-p-b">Журнал</span> &nbsp;<i style="color: #D42415;">«Alatoo Academic Studies»</i> включен в Перечень рекомендованных
+                  Высшей аттестационной комиссией Кыргызской Республики (ВАК КР) рецензируемых периодических
+                  изданий (Приказ № 2 от 12 февраля 2008 г.)
+                </p>
+                <p class="kvar-ISSN">
+                  <b>ISSN: 1694-5263 </b><span>(печатная версия)</span><br>
+                  <b>ISSN: 1694-7916 </b><span>(электронная версия)</span>
+                </p>
+                <p class="kvar-simple-p">
+                  <span class="simple-p-b">Адрес редакции:</span><br>720048, Кыргызская Республика, г. Бишкек, мкр. Тунгуч, ул. Анкара, 1/8<br>
+                  тел.: +996 (312) 63 14 25<br>
+                  факс: +996(312) 630409<br>
+                  Е-mail: aas@iaau.edu.kg
+                </p>
+                <p class="kvar-simple-p">
+                  <span class="simple-p-b">РЕДАКЦИОННЫЙ СОВЕТ ЖУРНАЛА</span><br>
+                  <span class="simple-p">Санжарбек Эрдолатов</span> – главный редактор, ректор
+                  Международного университета «Ала-Тоо», канд.пед.наук; <br>
+                  <span class="simple-p">Салидин Калдыбаев</span> – зам. гл. редактора, д-р пед.наук, профессор МУА (педагогика);<br>
+                    <span class="simple-p">Зеки Пекташ</span> – координатор, редактор «AAS» МУА, канд.пед.наук, доцент (педагогика)
+                </p>
+              </div>
+
+              <div class="kvartal">
+                <p class="has-text-centered kvar-right">Члены Совета:</p>
+                <br>
+                <p class="simple-p-svt">
+                  Эдилова Мариям Миталиповна, д. филос. наук, профессор МУА (философия);
+                  Тогусаков Осмон Асанкулович, д. филос. наук, профессор, член-корреспондент НАН КР (философия);<br>
+                  Дыйканбаева Гульнура Каныбековна, канд. филос. наук, доцент МУА (философия);<br>
+                  Гусейнова Мавлюда Джабировна, канд. куль. наук, доцент МУА (культурология);<br>
+                  Кенан Гумуштекин, PhD, доцент МУА (медицина);<br>
+                  Кыдыралиева Рыскуль Бекбоевна, д. мед. наук, профессор, МУА (медицина);<br>
+                  Мусуралиева Гульнара Турсунбековна, канд. мед. наук, доцент, МУА (микробиология);<br>
+                  Малтабаров Бакытбек Амирович, канд. социол. наук, доцент БГУ им. К. Карасаева (социология);<br>
+                  Халил Коч, канд. экон. наук, доцент МУА (экономика);<br>
+                  Эсеналиева Назира Солтонбекона, канд. экон. наук, доцент МУА (экономика);<br>
+                  Акмолдоев Кыялбек Маматалиевич, PhD, доцент МУА (экономика);<br>
+                  Жоробеков Жолборс Жоробекович, д. полит. наук, профессор КНУ им. Ж. Баласагына (политология);<br>
+                  Халим Незихоглу, канд. полит. наук, доцент МУА (политология);<br>
+                  Ибрахим Конжак, канд. полит. наук, доцент МУА (политология);<br>
+                  Усубалиев Бейшенбай Шеңкеевич, д. филол. наук, профессор Восточного Университета им. М. Кашгари-Барскани (кыргызское языкознание);<br>
+                  Жузупекова Кундуз Нуркалыковна, канд. филол. наук, доцент МУА (филология);<br>
+                  Садыков Ташполот Садыкович д. филол. наук, профессор МУА (тюркология);<br>
+                  Казакова Нурзат Аскаровна, канд. филол. наук, доцент МУА (филология);<br>
+                  Жаманбаев Мурат Адырович д.физ.-мат. наук, профессор КТУ им. И. Раззакова (математика);<br>
+                  Иса Муслу, PhD, доцент МУА (математика);<br>
+                  Исаев Руслан Рамилевич, к. физ.-мат. наук., доцент МУА (информатика);<br>
+                  Жакшылыков Жылдызбек Жакшылыкович, канд. пед. наук, доцент МУА (педагогика);<br>
+                  Жолчиева Айнуру Алибековна, канд. пед. наук, доцент МУА (педагогика);<br>
+                  Исмаилов Нурлан Асанович, канд. юрид. наук, доцент МУА (юриспруденция); <br>
+                  Тегизбекова Жылдыз Чынарбековна, канд. юрид. наук, доцент МУА (юриспруденция)
+                </p>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
