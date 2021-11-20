@@ -1,0 +1,1 @@
+# ass.alatoo.edu.kg
